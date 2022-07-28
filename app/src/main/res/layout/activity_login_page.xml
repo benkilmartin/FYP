@@ -8,20 +8,6 @@
     android:orientation="vertical"
     android:background="@drawable/gradient_background">
 
-    <!--    <ImageView-->
-    <!--        android:id="@+id/m"-->
-    <!--        android:layout_width="100dp"-->
-    <!--        android:layout_height="50dp"-->
-    <!--        app:srcCompat="@drawable/m" />-->
-
-    <!--    <ImageView-->
-    <!--        android:id="@+id/u"-->
-    <!--        android:layout_width="96dp"-->
-    <!--        android:layout_height="50dp"-->
-    <!--        android:layout_below="@id/m"-->
-    <!--        android:layout_marginBottom="50dp"-->
-    <!--        android:src="@drawable/u" />-->
-
     <EditText
         android:id="@+id/lEmail"
         android:layout_width="match_parent"
@@ -30,6 +16,8 @@
         android:layout_marginRight="20dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/custom_textbox"
+        android:drawableStart="@drawable/custom_ic_email"
+        android:drawablePadding="10dp"
         android:hint="Email"
         android:padding="10dp"
         android:textColorHint="@color/black" />
@@ -41,21 +29,23 @@
         android:layout_below="@id/lEmail"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="50dp"
         android:padding="10dp"
         android:background="@drawable/custom_textbox"
+        android:drawableStart="@drawable/custom_ic_lock"
+        android:drawablePadding="10dp"
         android:hint="Password"
         android:textColorHint="@color/black" />
 
-<!--        <androidx.appcompat.widget.AppCompatButton-->
-<!--            android:id="@+id/registerButton"-->
-<!--            android:layout_width="300dp"-->
-<!--            android:layout_height="50dp"-->
-<!--            android:layout_below="@id/lPassword"-->
-<!--            android:background="@drawable/button"-->
-<!--            android:text="Create Account">-->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/rBtn"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/cPassword"
+        android:background="@drawable/custom_button1"
+        android:text="Login">
 
-<!--        </androidx.appcompat.widget.AppCompatButton>-->
+    </androidx.appcompat.widget.AppCompatButton>
 
     <TextView
         android:id="@+id/fpassword"
@@ -65,7 +55,7 @@
         android:layout_marginLeft="100dp"
         android:layout_marginTop="15dp"
         android:layout_marginRight="100dp"
-        android:text="Forgot Password?A"
+        android:text="Forgot Password?"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textFontWeight="700" />

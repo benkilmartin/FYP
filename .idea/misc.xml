@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Maeve/AndroidStudioProjects/FYP/app/src/main/res/drawable/custom_button1.xml" value="0.124" />
         <entry key="..\:/Users/Maeve/AndroidStudioProjects/FYP/app/src/main/res/drawable/custom_ic_email.xml" value="0.1155" />
         <entry key="..\:/Users/Maeve/AndroidStudioProjects/FYP/app/src/main/res/drawable/custom_ic_lock.xml" value="0.1155" />
         <entry key="..\:/Users/Maeve/AndroidStudioProjects/FYP/app/src/main/res/drawable/custom_textbox.xml" value="0.2265" />
@@ -11,8 +12,8 @@
         <entry key="..\:/Users/Maeve/AndroidStudioProjects/FYP/app/src/main/res/drawable/ic_email_focused.xml" value="0.1155" />
         <entry key="..\:/Users/Maeve/AndroidStudioProjects/FYP/app/src/main/res/drawable/ic_lock.xml" value="0.23" />
         <entry key="..\:/Users/Maeve/AndroidStudioProjects/FYP/app/src/main/res/drawable/ic_lock_focused.xml" value="0.1155" />
-        <entry key="..\:/Users/Maeve/AndroidStudioProjects/FYP/app/src/main/res/layout/activity_login_page.xml" value="0.2234375" />
-        <entry key="..\:/Users/Maeve/AndroidStudioProjects/FYP/app/src/main/res/layout/activity_registration_page.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/Maeve/AndroidStudioProjects/FYP/app/src/main/res/layout/activity_login_page.xml" value="0.152" />
+        <entry key="..\:/Users/Maeve/AndroidStudioProjects/FYP/app/src/main/res/layout/activity_registration_page.xml" value="0.264" />
       </map>
     </option>
   </component>
