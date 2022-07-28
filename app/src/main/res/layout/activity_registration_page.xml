@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegistrationPage"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="@drawable/gradient_background">
+
+
+    <EditText
+        android:id="@+id/rEmail"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/custom_textbox"
+        android:drawableStart="@drawable/custom_ic_email"
+        android:drawablePadding="10dp"
+        android:hint="Email"
+        android:padding="10dp"
+        android:textColorHint="@color/black"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/rPassword"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/rEmail"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
+        android:padding="10dp"
+        android:background="@drawable/custom_textbox"
+        android:drawableStart="@drawable/custom_ic_lock"
+        android:drawablePadding="10dp"
+        android:hint="Password"
+        android:textColorHint="@color/black" />
+
+    <EditText
+        android:id="@+id/cPassword"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/rPassword"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="50dp"
+        android:padding="10dp"
+        android:background="@drawable/custom_textbox"
+        android:drawableStart="@drawable/custom_ic_lock"
+        android:drawablePadding="10dp"
+        android:hint="Repeat Password"
+        android:textColorHint="@color/black" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/rBtn"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/cPassword"
+        android:background="@drawable/custom_button1"
+        android:text="Create Account">
+
+    </androidx.appcompat.widget.AppCompatButton>
+
+    <TextView
+        android:id="@+id/haveAccount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/registerBtn"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="100dp"
+        android:text="Have an Account?"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textFontWeight="700" />
+
+</LinearLayout>
