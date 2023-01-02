@@ -14,12 +14,15 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Date;
 
 public class EventEditActivity extends AppCompatActivity
 {
-    private EditText eventNameET;
+    private EditText eventSubjectET, eventTopicET;
     private TextView eventDateTV, eventTimeTV;
     private Button saveEvent;
 
@@ -39,28 +42,34 @@ public class EventEditActivity extends AppCompatActivity
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
-        eventNameET = findViewById(R.id.eventNameET);
+        eventSubjectET = findViewById(R.id.eSubject);
+        eventTopicET = findViewById(R.id.eTopic);
         eventDateTV = findViewById(R.id.eventDateTV);
         eventTimeTV = findViewById(R.id.eventTimeTV);
-        saveEvent = findViewById(R.id.saveEventAction);
+        saveEvent = findViewById(R.id.eBtn);
 
         saveEvent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
             time = LocalTime.now();
             date = LocalDate.now();
+            DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+            Date date = new Date();
+            String strDate = dateFormat.format(date);
+            String eventSubject = eventSubjectET.getText().toString().trim();
+            String eventTopic = eventSubjectET.getText().toString().trim();
+
             eventDateTV.setText("Date: " + CalendarUtils.formattedDate(CalendarUtils.selectedDate));
             eventTimeTV.setText("Time: " + CalendarUtils.formattedTime(time));
-            String eventName = eventNameET.getText().toString().trim();
 
-                if(eventName.isEmpty()){
+                if(eventSubject.isEmpty()||eventTopic.isEmpty()){
                     Toast.makeText(getApplicationContext(), "Please Fill in all Fields", Toast.LENGTH_SHORT).show();
                 }else{
-                    Event newEvent = new Event(eventName);
+                    Event newEvent = new Event(eventSubject, eventTopic, strDate);
                     Event.eventsList.add(newEvent);
 
                     String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                    FirebaseDatabase.getInstance().getReference("Events").child(userID).setValue(newEvent);
+                    FirebaseDatabase.getInstance().getReference("Events").child(userID).push().setValue(newEvent);
                     finish();
                 }
             }

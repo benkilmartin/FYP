@@ -24,4 +24,10 @@
         <item>Chemistry </item>
         <item>Physics </item>
     </string-array>
+
+    <string-array name="durationspinneroptions">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
 </resources>

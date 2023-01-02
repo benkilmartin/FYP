@@ -4,17 +4,14 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
-public class Event
-{
+public class Event {
     public static ArrayList<Event> eventsList = new ArrayList<>();
 
-    public static ArrayList<Event> eventsForDate(LocalDate date)
-    {
+    public static ArrayList<Event> eventsForDate(LocalDate date) {
         ArrayList<Event> events = new ArrayList<>();
 
-        for(Event event : eventsList)
-        {
-            if(event.getDate().equals(date))
+        for (Event event : eventsList) {
+            if (event.getDate().equals(date))
                 events.add(event);
         }
 
@@ -22,47 +19,40 @@ public class Event
     }
 
 
-    private String name;
-    private LocalDate date;
+    private String subject;
+    private String topic;
+    private String date;
     private LocalTime time;
 
-    public Event(String name)
-    {
-        this.name = name;
+    public Event(String subject, String topic, String date) {
+        this.topic = topic;
+        this.subject = subject;
         this.date = date;
         this.time = time;
     }
 
-    public String getName()
-    {
-        return name;
+    public String getSubject() {
+        return subject;
     }
 
-    public void setName(String name)
-    {
-        this.name = name;
-    }
+    public void setSubject(String name) {this.subject = subject;}
 
-//    public LocalTime getTime() {
-//    }
+    public String getTopic() {return topic;}
 
-    public LocalDate getDate()
-    {
+    public void setTopic(String topic) {this.topic = topic;}
+
+    public String getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date)
-    {
-        this.date = date;
-    }
+    public void setDate(String date) {this.date = date;}
 
-    public LocalTime getTime()
-    {
+    public LocalTime getTime() {
         return time;
     }
 
-    public void setTime(LocalTime time)
-    {
+    public void setTime(LocalTime time) {
         this.time = time;
     }
+
 }

@@ -5,14 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.fyp.calendar.MainActivity;
+import com.example.fyp.calendar.CalendarActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -82,7 +81,7 @@ public class LoginPage extends AppCompatActivity {
     private void checkVerification() {
         FirebaseUser firebaseUser = firebase.getCurrentUser();
         if(firebaseUser.isEmailVerified()){
-            startActivity(new Intent(LoginPage.this, MainActivity.class));
+            startActivity(new Intent(LoginPage.this, CalendarActivity.class));
         }else{
             Toast.makeText(getApplicationContext(), "Please verify your email!", Toast.LENGTH_SHORT).show();
         }
