@@ -19,6 +19,7 @@
         android:drawableStart="@drawable/custom_ic_email"
         android:drawablePadding="10dp"
         android:hint="Email"
+        android:inputType="textEmailAddress"
         android:padding="10dp"
         android:textColorHint="@color/black" />
 
@@ -35,10 +36,11 @@
         android:drawableStart="@drawable/custom_ic_lock"
         android:drawablePadding="10dp"
         android:hint="Password"
+        android:inputType="textPassword"
         android:textColorHint="@color/black" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/rBtn"
+        android:id="@+id/lBtn"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_below="@id/cPassword"

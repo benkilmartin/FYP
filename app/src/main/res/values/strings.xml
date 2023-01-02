@@ -11,4 +11,17 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <string name="back"><![CDATA[<-]]></string>
+    <string name="forward"><![CDATA[->]]></string>
+
+    <string-array name="subjectspinneroptions">
+        <item>English</item>
+        <item>Maths</item>
+        <item>Geography</item>
+        <item>History </item>
+        <item>Art </item>
+        <item>Biology </item>
+        <item>Chemistry </item>
+        <item>Physics </item>
+    </string-array>
 </resources>

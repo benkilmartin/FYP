@@ -14,18 +14,23 @@
         android:theme="@style/Theme.FYP"
         tools:targetApi="31">
         <activity
+            android:name=".SubjectsFolder.SubjectsActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".MainActivity2"
-            android:exported="false"
+            android:exported="true"
             android:label="@string/title_activity_main2"
-            android:theme="@style/Theme.FYP.NoActionBar" />
+            android:theme="@style/Theme.FYP.NoActionBar"></activity>
         <activity
             android:name=".LoginPage"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.FYP.NoActionBar" />
         <activity
             android:name=".RegistrationPage"
-            android:exported="true" />
-        <activity
-            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,6 +38,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".calendar.EventEditActivity" />
+        <activity android:name=".calendar.WeekViewActivity" />
+        <activity
+            android:name=".calendar.MainActivity"
+            android:exported="true"></activity>
     </application>
 
 </manifest>

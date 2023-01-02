@@ -10,6 +10,22 @@
 
 
     <EditText
+        android:id="@+id/rUsername"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/custom_textbox"
+        android:drawableStart="@drawable/custom_ic_person"
+        android:drawablePadding="10dp"
+        android:hint="Username"
+        android:inputType="textPersonName"
+        android:padding="10dp"
+        android:textColorHint="@color/black"
+        android:autofillHints="" />
+
+    <EditText
         android:id="@+id/rEmail"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -20,6 +36,7 @@
         android:drawableStart="@drawable/custom_ic_email"
         android:drawablePadding="10dp"
         android:hint="Email"
+        android:inputType="textEmailAddress"
         android:padding="10dp"
         android:textColorHint="@color/black"
         android:autofillHints="" />
@@ -37,6 +54,7 @@
         android:drawableStart="@drawable/custom_ic_lock"
         android:drawablePadding="10dp"
         android:hint="Password"
+        android:inputType="textPassword"
         android:textColorHint="@color/black" />
 
     <EditText
@@ -52,6 +70,7 @@
         android:drawableStart="@drawable/custom_ic_lock"
         android:drawablePadding="10dp"
         android:hint="Repeat Password"
+        android:inputType="textPassword"
         android:textColorHint="@color/black" />
 
     <androidx.appcompat.widget.AppCompatButton
