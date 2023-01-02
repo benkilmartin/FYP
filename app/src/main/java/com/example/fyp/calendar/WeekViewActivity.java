@@ -28,7 +28,6 @@ public class WeekViewActivity extends AppCompatActivity implements CalendarAdapt
     private FirebaseAuth firebaseAuth;
     private DatabaseReference mDatabase;
     private String userID;
-    //        userID = firebaseAuth.getCurrentUser().getUid();
 
     @Override
     protected void onCreate(Bundle savedInstanceState)

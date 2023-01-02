@@ -4,29 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="@drawable/gradient_background"
     android:orientation="vertical"
     tools:context=".calendar.EventEditActivity">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:text="Name:"
-        android:textSize="20sp"
-        android:textAlignment="center"
-        android:textColor="@color/black"/>
-
-    <EditText
-        android:id="@+id/eventNameET"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:textSize="20sp"
-        android:ems="10"
-        android:inputType="text"/>
-
-    <TextView
+        android:id="@+id/eventSubjectTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -36,14 +20,38 @@
         android:textAlignment="center"
         android:textColor="@color/black"/>
 
-    <EditText
-        android:id="@+id/eventNameErT"
+    <Spinner
+        android:id="@+id/sSpinner"
+        android:background="@drawable/custom_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
+        android:padding="10dp"/>
+
+    <TextView
+        android:id="@+id/eventDurationTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="Duration:"
         android:textSize="20sp"
-        android:ems="10"
-        android:inputType="text"/>
+        android:textAlignment="center"
+        android:textColor="@color/black"/>
+
+    <Spinner
+        android:id="@+id/dSpinner"
+        android:hint="Duration"
+        android:background="@drawable/custom_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
+        android:padding="10dp"/>
+
 
     <TextView
         android:id="@+id/eventDateTV"
@@ -51,7 +59,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:text="Date"
+        android:text="Date:"
         android:textSize="20sp"
         android:textAlignment="center"
         android:textColor="@color/black"/>
@@ -62,21 +70,20 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:text="Time"
+        android:text="Time:"
         android:textSize="20sp"
         android:textAlignment="center"
         android:textColor="@color/black"/>
 
-    <Button
-        android:id="@+id/saveEventAction"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/eBtn"
         android:layout_marginTop="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Save"
-        android:textColor="@color/blue"
-        android:background="@null"
-        android:textStyle="bold"
-        android:layout_gravity="center"
-        android:textSize="20sp"/>
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/eventTimeTV"
+        android:background="@drawable/custom_button1"
+        android:text="Save">
+
+    </androidx.appcompat.widget.AppCompatButton>
 
 </LinearLayout>

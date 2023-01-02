@@ -17,11 +17,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 
-public class EventAdapter extends ArrayAdapter<Event>{
-    private FirebaseAuth firebaseAuth;
-    private DatabaseReference mDatabase;
-    private String userID;
-
+public class EventAdapter extends ArrayAdapter<Event>
+{
     public EventAdapter(@NonNull Context context, List<Event> events)
     {
         super(context, 0, events);
@@ -29,10 +26,8 @@ public class EventAdapter extends ArrayAdapter<Event>{
 
     @NonNull
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent){
-        firebaseAuth = FirebaseAuth.getInstance();
-        userID = firebaseAuth.getCurrentUser().getUid();
-        mDatabase = FirebaseDatabase.getInstance().getReference();
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent)
+    {
         Event event = getItem(position);
 
         if (convertView == null)
@@ -40,7 +35,7 @@ public class EventAdapter extends ArrayAdapter<Event>{
 
         TextView eventCellTV = convertView.findViewById(R.id.eventCellTV);
 
-        String eventTitle = event.getName() +" "+ CalendarUtils.formattedTime(event.getTime());
+        String eventTitle = event.getSubject() +" "+ event.getTime();
         eventCellTV.setText(eventTitle);
         return convertView;
     }

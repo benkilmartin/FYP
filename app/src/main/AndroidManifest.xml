@@ -41,7 +41,7 @@
         <activity android:name=".calendar.EventEditActivity" />
         <activity android:name=".calendar.WeekViewActivity" />
         <activity
-            android:name=".calendar.MainActivity"
+            android:name=".calendar.CalendarActivity"
             android:exported="true"></activity>
     </application>
 
