@@ -1,4 +1,4 @@
-package com.example.fyp.calendar;
+package com.example.fyp.ui.Calendar;
 
 import android.graphics.Color;
 import android.view.LayoutInflater;

@@ -1,4 +1,4 @@
-package com.example.fyp;
+package com.example.fyp.UserFolder;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,7 +11,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.fyp.UserFolder.User;
+import com.example.fyp.R;
+import com.example.fyp.ui.UserProfile.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -68,12 +69,12 @@ public class RegistrationPage extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 Toast.makeText(getApplicationContext(), "Registration Successful", Toast.LENGTH_SHORT).show();
 
-                                User user = new User(userN,mail,password);
+                                User user = new User(userN,mail,password, " ");
                                 String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
                                 FirebaseDatabase.getInstance().getReference("Users").child(userID).setValue(user);
                                 sendVerificationEmail();
 
-                                startActivity(new Intent(RegistrationPage.this,LoginPage.class));
+                                startActivity(new Intent(RegistrationPage.this, LoginPage.class));
 
                             }else{
                                 Toast.makeText(getApplicationContext(), "Registration Failed", Toast.LENGTH_SHORT).show();

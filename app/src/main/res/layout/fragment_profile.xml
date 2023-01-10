@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@drawable/gradient_background">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/userProfilePicture"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/ic_person"
+        android:layout_marginBottom="20dp"/>
+    <TextView
+        android:id="@+id/editImageTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:text="Click image to edit"
+        android:textStyle="italic"
+        android:textAlignment="center" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/saveBtn"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_below="@id/eventTimeTV"
+        android:background="@drawable/custom_button1"
+        android:text="Save"
+        android:visibility="gone">
+    </androidx.appcompat.widget.AppCompatButton>
+
+    <TextView
+        android:id="@+id/UsernameTV"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_textbox"
+        android:layout_marginTop="20dp"
+        android:minHeight="50dp"
+        android:textSize="20dp"
+        android:paddingTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:textAlignment="center"
+        android:textColorHint="#F6F6F6" />
+
+    <TextView
+        android:id="@+id/EmailTV"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_textbox"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:minHeight="50dp"
+        android:textSize="20dp"
+        android:gravity="center_horizontal"
+        android:textColorHint="#F6F6F6" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/loutBtn"
+        android:layout_marginTop="20dp"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/eventTimeTV"
+        android:background="@drawable/custom_button1"
+        android:text="Logout">
+    </androidx.appcompat.widget.AppCompatButton>
+
+
+</LinearLayout>
+
+
+
+</RelativeLayout>

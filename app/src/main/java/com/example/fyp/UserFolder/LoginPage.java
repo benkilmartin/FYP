@@ -1,4 +1,4 @@
-package com.example.fyp;
+package com.example.fyp.UserFolder;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,7 +11,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.fyp.calendar.CalendarActivity;
+import com.example.fyp.R;
+import com.example.fyp.Splash;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -35,9 +36,6 @@ public class LoginPage extends AppCompatActivity {
         firebase = FirebaseAuth.getInstance();
         firebaseU =firebase.getCurrentUser();
 
-//        if(firebaseU!=null){
-//            startActivity(new Intent(LoginPage.this, MainActivity.class));
-//        }
         email = findViewById(R.id.lEmail);
         password = findViewById(R.id.lPassword);
         loginBtn = findViewById(R.id.lBtn);
@@ -68,20 +66,19 @@ public class LoginPage extends AppCompatActivity {
             }
         });
 
-//        forgotBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//                //call signup activity
-//                startActivity(new Intent(LoginPage.this, forgotPassword.class));
-//            }
-//        });
+        forgotBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LoginPage.this, ForgotPassword.class));
+            }
+        });
     }
 
     private void checkVerification() {
         FirebaseUser firebaseUser = firebase.getCurrentUser();
         if(firebaseUser.isEmailVerified()){
-            startActivity(new Intent(LoginPage.this, CalendarActivity.class));
+            Intent intent=new Intent(LoginPage.this, Splash.class);
+            startActivity(intent);
         }else{
             Toast.makeText(getApplicationContext(), "Please verify your email!", Toast.LENGTH_SHORT).show();
         }

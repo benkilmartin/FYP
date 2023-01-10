@@ -1,7 +1,7 @@
-package com.example.fyp.calendar;
+package com.example.fyp.ui.Calendar;
 
-import static com.example.fyp.calendar.CalendarUtils.daysInWeekArray;
-import static com.example.fyp.calendar.CalendarUtils.monthYearFromDate;
+import static com.example.fyp.ui.Calendar.CalendarUtils.daysInWeekArray;
+import static com.example.fyp.ui.Calendar.CalendarUtils.monthYearFromDate;
 
 import android.content.Intent;
 import android.os.Bundle;

@@ -1,15 +1,17 @@
-package com.example.fyp.UserFolder;
+package com.example.fyp.ui.UserProfile;
 
 public class User {
 
     String usernname;
     String email;
     String password;
+    String pImage;
 
-    public User(String usernname, String email, String password) {
+    public User(String usernname, String email, String password, String pImage) {
         this.usernname = usernname;
         this.email = email;
         this.password = password;
+        this.pImage = pImage;
     }
 
     public User() {
@@ -37,5 +39,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getpImage() {
+        return pImage;
+    }
+
+    public void setpImage(String pImage) {
+        this.pImage = pImage;
     }
 }

@@ -1,4 +1,4 @@
-package com.example.fyp.calendar;
+package com.example.fyp.ui.Calendar;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;

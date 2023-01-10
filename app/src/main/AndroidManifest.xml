@@ -14,23 +14,36 @@
         android:theme="@style/Theme.FYP"
         tools:targetApi="31">
         <activity
-            android:name=".SubjectsFolder.SubjectsActivity"
+            android:name=".Splash"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".MainActivity2"
+            android:name=".UserFolder.ForgotPassword"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity> <!-- <activity -->
+        <!-- android:name=".SubjectsFolder.SubjectsActivity" -->
+        <!-- android:exported="false"> -->
+        <!-- <meta-data -->
+        <!-- android:name="android.app.lib_name" -->
+        <!-- android:value="" /> -->
+        <!-- </activity> -->
+        <activity
+            android:name=".nav_drawer.NavDrawerActivity"
             android:exported="true"
             android:label="@string/title_activity_main2"
-            android:theme="@style/Theme.FYP.NoActionBar"></activity>
+            android:theme="@style/Theme.FYP.NoActionBar" />
         <activity
-            android:name=".LoginPage"
+            android:name=".UserFolder.LoginPage"
             android:exported="false"
             android:theme="@style/Theme.FYP.NoActionBar" />
         <activity
-            android:name=".RegistrationPage"
+            android:name=".UserFolder.RegistrationPage"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -38,11 +51,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".calendar.EventEditActivity" />
-        <activity android:name=".calendar.WeekViewActivity" />
+        <activity android:name=".ui.Calendar.EventEditActivity"
+            android:parentActivityName=".ui.Calendar.WeekViewActivity"/>
+        <activity android:name=".ui.Calendar.WeekViewActivity"
+            android:parentActivityName=".ui.Calendar.CalendarActivity"/>
         <activity
-            android:name=".calendar.CalendarActivity"
-            android:exported="true"></activity>
+            android:name=".ui.Calendar.CalendarActivity"
+            android:exported="true"
+            android:parentActivityName=".nav_drawer.NavDrawerActivity"/>
     </application>
 
 </manifest>

@@ -11,6 +11,7 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/wbtn"
+        android:onClick="weeklyAction"
         android:layout_marginTop="20dp"
         android:layout_width="150dp"
         android:layout_height="50dp"
@@ -29,6 +30,7 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/pbtn"
+            android:onClick="previousMonthAction"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -51,6 +53,7 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/nbtn"
+            android:onClick="nextMonthAction"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -140,16 +143,3 @@
         android:layout_height="match_parent"/>
 
 </LinearLayout>
-
-
-
-
-
-
-
-
-
-
-
-
-

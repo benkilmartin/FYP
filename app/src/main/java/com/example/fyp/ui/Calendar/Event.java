@@ -1,7 +1,6 @@
-package com.example.fyp.calendar;
+package com.example.fyp.ui.Calendar;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class Event {

@@ -1,12 +1,13 @@
-package com.example.fyp.calendar;
+package com.example.fyp.ui.Calendar;
 
-import static com.example.fyp.calendar.CalendarUtils.daysInMonthArray;
-import static com.example.fyp.calendar.CalendarUtils.monthYearFromDate;
+import static com.example.fyp.ui.Calendar.CalendarUtils.daysInMonthArray;
+import static com.example.fyp.ui.Calendar.CalendarUtils.monthYearFromDate;
 
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +15,8 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fyp.R;
+import com.example.fyp.Splash;
+import com.example.fyp.UserFolder.LoginPage;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -23,22 +26,44 @@ public class CalendarActivity extends AppCompatActivity implements CalendarAdapt
     private TextView monthYearText;
     private RecyclerView calendarRecyclerView;
     private String userID;
-
+    private Button wView, pWeek, nWeek;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initWidgets();
-        CalendarUtils.selectedDate = LocalDate.now();
-        setMonthView();
-    }
-
-    private void initWidgets()
-    {
         calendarRecyclerView = findViewById(R.id.calendarRecyclerView);
         monthYearText = findViewById(R.id.monthYearTV);
+        wView = findViewById(R.id.wbtn);
+        pWeek = findViewById(R.id.pbtn);
+        nWeek = findViewById(R.id.nbtn);
+        CalendarUtils.selectedDate = LocalDate.now();
+        setMonthView();
+
+        pWeek.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                CalendarUtils.selectedDate = CalendarUtils.selectedDate.minusMonths(1);
+                setMonthView();
+            }
+        });
+
+        wView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(CalendarActivity.this, WeekViewActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        nWeek.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                CalendarUtils.selectedDate = CalendarUtils.selectedDate.plusMonths(1);
+                setMonthView();
+            }
+        });
     }
 
     private void setMonthView()
@@ -52,11 +77,7 @@ public class CalendarActivity extends AppCompatActivity implements CalendarAdapt
         calendarRecyclerView.setAdapter(calendarAdapter);
     }
 
-    public void previousMonthAction(View view)
-    {
-        CalendarUtils.selectedDate = CalendarUtils.selectedDate.minusMonths(1);
-        setMonthView();
-    }
+
 
     public void nextMonthAction(View view)
     {
@@ -72,11 +93,6 @@ public class CalendarActivity extends AppCompatActivity implements CalendarAdapt
             CalendarUtils.selectedDate = date;
             setMonthView();
         }
-    }
-
-    public void weeklyAction(View view)
-    {
-        startActivity(new Intent(this, WeekViewActivity.class));
     }
 }
 
