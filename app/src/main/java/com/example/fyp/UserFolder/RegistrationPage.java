@@ -12,7 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.fyp.R;
-import com.example.fyp.ui.UserProfile.User;
+import com.example.fyp.UI.UserProfile.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -24,12 +24,11 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class RegistrationPage extends AppCompatActivity {
 
-    private FirebaseAuth firebase;
-    private DatabaseReference mDatabase;
+    private FirebaseAuth bfirebase;
 
-    private Button signupButton;
-    private TextView loginpageButton;
-    private EditText signupUsername, signupEmail, signupPassword, csignupPassword;
+    private Button bsignupButton;
+    private TextView bloginpageButton;
+    private EditText bsignupUsername, bsignupEmail, bsignupPassword, bcsignupPassword;
 
 
     @Override
@@ -38,38 +37,37 @@ public class RegistrationPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration_page);
 
-        firebase= FirebaseAuth.getInstance();
-        mDatabase = FirebaseDatabase.getInstance().getReference();
+        bfirebase= FirebaseAuth.getInstance();
 
-        signupUsername = findViewById(R.id.rUsername);
-        signupEmail = findViewById(R.id.rEmail);
-        signupPassword = findViewById(R.id.rPassword);
-        csignupPassword = findViewById(R.id.cPassword);
+        bsignupUsername = findViewById(R.id.kUsername);
+        bsignupEmail = findViewById(R.id.kEmail);
+        bsignupPassword = findViewById(R.id.kPassword);
+        bcsignupPassword = findViewById(R.id.kcPassword);
 
-        signupButton = findViewById(R.id.rBtn);
-        loginpageButton = findViewById(R.id.haveAccount);
+        bsignupButton = findViewById(R.id.kBtn);
+        bloginpageButton = findViewById(R.id.khaveAccount);
 
-        signupButton.setOnClickListener(new View.OnClickListener() {
+        bsignupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                String userN = signupUsername.getText().toString().trim();
-                String mail = signupEmail.getText().toString().trim();
-                String password = signupPassword.getText().toString().trim();
-                String cpassword = csignupPassword.getText().toString().trim();
+                String buserN = bsignupUsername.getText().toString().trim();
+                String bmail = bsignupEmail.getText().toString().trim();
+                String bpassword = bsignupPassword.getText().toString().trim();
+                String bcpassword = bcsignupPassword.getText().toString().trim();
 
-                if (mail.isEmpty() || password.isEmpty() || cpassword.isEmpty()) {
+                if (bmail.isEmpty() || bpassword.isEmpty() || bcpassword.isEmpty()) {
                     Toast.makeText(getApplicationContext(), "Please Fill in all Fields", Toast.LENGTH_SHORT).show();
-                } else if (password.length() < 5 & !password.contains(" ")) {
+                } else if (bpassword.length() < 5 & !bpassword.contains(" ")) {
                     Toast.makeText(getApplicationContext(), "Invalid Password", Toast.LENGTH_SHORT).show();
                 } else {
-                    firebase.createUserWithEmailAndPassword(mail,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    bfirebase.createUserWithEmailAndPassword(bmail,bpassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
                                 Toast.makeText(getApplicationContext(), "Registration Successful", Toast.LENGTH_SHORT).show();
 
-                                User user = new User(userN,mail,password, " ");
+                                User user = new User(buserN,bmail,bpassword, " ");
                                 String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
                                 FirebaseDatabase.getInstance().getReference("Users").child(userID).setValue(user);
                                 sendVerificationEmail();
@@ -86,7 +84,7 @@ public class RegistrationPage extends AppCompatActivity {
             }
         });
 
-        loginpageButton.setOnClickListener(new View.OnClickListener(){
+        bloginpageButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick (View v){
                 Intent intent = new Intent(RegistrationPage.this, LoginPage.class);
@@ -95,13 +93,13 @@ public class RegistrationPage extends AppCompatActivity {
         });
     }
     private void sendVerificationEmail() {
-        FirebaseUser firebaseUser=firebase.getCurrentUser();
+        FirebaseUser firebaseUser=bfirebase.getCurrentUser();
         if(firebaseUser!=null){
             firebaseUser.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
                     Toast.makeText(getApplicationContext(), "Verification Email Sent", Toast.LENGTH_SHORT).show();
-                    firebase.signOut();
+                    bfirebase.signOut();
                     finish();
                 }
             });

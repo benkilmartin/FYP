@@ -34,7 +34,7 @@
         <!-- android:value="" /> -->
         <!-- </activity> -->
         <activity
-            android:name=".nav_drawer.NavDrawerActivity"
+            android:name=".NavDrawer.NavDrawerActivity"
             android:exported="true"
             android:label="@string/title_activity_main2"
             android:theme="@style/Theme.FYP.NoActionBar" />
@@ -51,14 +51,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.Calendar.EventEditActivity"
-            android:parentActivityName=".ui.Calendar.WeekViewActivity"/>
-        <activity android:name=".ui.Calendar.WeekViewActivity"
-            android:parentActivityName=".ui.Calendar.CalendarActivity"/>
+        <activity android:name=".UI.Calendar.EventActivity"
+            android:parentActivityName=".UI.Calendar.WeekActivity"/>
+        <activity android:name=".UI.Calendar.WeekActivity"
+            android:parentActivityName=".UI.Calendar.CalActivity"/>
         <activity
-            android:name=".ui.Calendar.CalendarActivity"
+            android:name=".UI.Calendar.CalActivity"
             android:exported="true"
-            android:parentActivityName=".nav_drawer.NavDrawerActivity"/>
+            android:parentActivityName=".NavDrawer.NavDrawerActivity"/>
+        <activity android:name=".UI.GoogleBooks.BookExpanded"></activity>
+        <activity android:name=".UI.UserProfile.BookSavedExpanded"></activity>
     </application>
 
 </manifest>

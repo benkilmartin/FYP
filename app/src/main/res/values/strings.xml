@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FYP</string>
+    <string name="app_name">Focus</string>
     <string name="title_activity_main2">NavDrawer</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -11,6 +11,8 @@
     <string name="menu_home">Home</string>
     <string name="menu_calendar">Calendar</string>
     <string name="menu_profile">Profile</string>
+    <string name="menu_book">Books</string>
+    <string name="menu_timer">Timer</string>
     <string name="back"><![CDATA[<-]]></string>
     <string name="forward"><![CDATA[->]]></string>
 

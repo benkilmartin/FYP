@@ -8,8 +8,18 @@
     android:orientation="vertical"
     android:background="@drawable/gradient_background">
 
+    <ImageView
+        android:id="@+id/kimageView"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center|center_horizontal"
+        android:layout_marginBottom="50dp"
+        android:src="@drawable/app_logo1"
+        tools:layout_editor_absoluteX="141dp"
+        tools:layout_editor_absoluteY="301dp" />
+
     <EditText
-        android:id="@+id/lEmail"
+        android:id="@+id/kEmail"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginLeft="20dp"
@@ -24,10 +34,9 @@
         android:textColorHint="@color/black" />
 
     <EditText
-        android:id="@+id/lPassword"
+        android:id="@+id/kPassword"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_below="@id/lEmail"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="50dp"
@@ -40,20 +49,18 @@
         android:textColorHint="@color/black" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/lBtn"
+        android:id="@+id/kBtn"
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_below="@id/cPassword"
         android:background="@drawable/custom_button1"
         android:text="Login">
 
     </androidx.appcompat.widget.AppCompatButton>
 
     <TextView
-        android:id="@+id/fpassword"
+        android:id="@+id/kpassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/registerBtn"
         android:layout_marginLeft="100dp"
         android:layout_marginTop="15dp"
         android:layout_marginRight="100dp"

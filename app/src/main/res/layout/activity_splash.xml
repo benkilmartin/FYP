@@ -5,14 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_background"
+    android:gravity="center"
     tools:context=".Splash">
 
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="200dp"
-        android:src="@drawable/app_logo"
+        android:src="@drawable/app_logo1"
         tools:layout_editor_absoluteX="141dp"
         tools:layout_editor_absoluteY="301dp"
         android:layout_gravity="center|center_horizontal"/>

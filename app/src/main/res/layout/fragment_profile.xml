@@ -68,7 +68,7 @@ android:background="@drawable/gradient_background">
         android:layout_height="50dp"
         android:layout_below="@id/eventTimeTV"
         android:background="@drawable/custom_button1"
-        android:text="Logout">
+        android:text="Saved Books">
     </androidx.appcompat.widget.AppCompatButton>
 
 

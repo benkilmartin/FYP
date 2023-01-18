@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/gradient_background"
+    tools:context=".UI.Calendar.CalActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:id="@+id/bookTV"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            android:text="Find a Book"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:textColor="@color/black"/>
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/searchETa"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:padding="10dp"
+        android:background="@drawable/custom_textbox"
+        android:drawableStart="@drawable/custom_ic_search"
+        android:drawablePadding="10dp"
+        android:hint="Search"
+        android:textColorHint="@color/black" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/sbtn"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="20dp"
+        android:layout_gravity="center"
+        android:layout_below="@id/calendarRecyclerView"
+        android:background="@drawable/custom_button1"
+        android:text="Go"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/idRVBooks"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

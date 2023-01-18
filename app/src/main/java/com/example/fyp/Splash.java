@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 
-import com.example.fyp.nav_drawer.NavDrawerActivity;
+import com.example.fyp.NavDrawer.NavDrawerActivity;
 
 public class Splash extends AppCompatActivity {
 
@@ -23,6 +23,6 @@ public class Splash extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
-        }, 1);
+        }, 1500);
     }
 }

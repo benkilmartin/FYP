@@ -21,37 +21,34 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class LoginPage extends AppCompatActivity {
 
-    private FirebaseAuth firebase;
-    private FirebaseUser firebaseU;
+    private FirebaseAuth bfirebase;
 
-    private EditText email, password;
-    private Button loginBtn;
-    private TextView forgotBtn;
+
+    private EditText bemail, bpassword;
+    private Button bloginBtn;
+    private TextView bforgotBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_page);
 
-        firebase = FirebaseAuth.getInstance();
-        firebaseU =firebase.getCurrentUser();
+        bemail = findViewById(R.id.kEmail);
+        bpassword = findViewById(R.id.kPassword);
+        bloginBtn = findViewById(R.id.kBtn);
+        bforgotBtn = findViewById(R.id.kpassword);
+        bfirebase = FirebaseAuth.getInstance();
 
-        email = findViewById(R.id.lEmail);
-        password = findViewById(R.id.lPassword);
-        loginBtn = findViewById(R.id.lBtn);
-        forgotBtn = findViewById(R.id.fpassword);
-        firebase = FirebaseAuth.getInstance();
-
-        loginBtn.setOnClickListener(new View.OnClickListener() {
+        bloginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String qemail = email.getText().toString().trim();
-                String qpassword = password.getText().toString().trim();
+                String qemail = bemail.getText().toString().trim();
+                String qpassword = bpassword.getText().toString().trim();
 
                 if (qpassword.isEmpty() || qemail.isEmpty()) {
                     Toast.makeText(getApplicationContext(), "Please Populate Fields", Toast.LENGTH_SHORT).show();
                 } else {
-                    firebase.signInWithEmailAndPassword(qemail,qpassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    bfirebase.signInWithEmailAndPassword(qemail,qpassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
 
@@ -66,7 +63,7 @@ public class LoginPage extends AppCompatActivity {
             }
         });
 
-        forgotBtn.setOnClickListener(new View.OnClickListener() {
+        bforgotBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(LoginPage.this, ForgotPassword.class));
@@ -75,7 +72,7 @@ public class LoginPage extends AppCompatActivity {
     }
 
     private void checkVerification() {
-        FirebaseUser firebaseUser = firebase.getCurrentUser();
+        FirebaseUser firebaseUser = bfirebase.getCurrentUser();
         if(firebaseUser.isEmailVerified()){
             Intent intent=new Intent(LoginPage.this, Splash.class);
             startActivity(intent);
