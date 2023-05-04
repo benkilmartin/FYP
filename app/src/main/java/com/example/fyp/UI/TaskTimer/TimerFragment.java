@@ -38,6 +38,8 @@ public class TimerFragment extends Fragment {
     private long mStartTimeInMillis;
     private long mTimeLeftInMillis;
     private long mEndTime;
+
+
     private Context bContext;
 
 
@@ -56,7 +58,6 @@ public class TimerFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 String input = mEditTextInput.getText().toString();
-                System.out.println("Hereer");
                 if (input.length() == 0) {
                     Toast.makeText(getActivity(), "Field can't be empty", Toast.LENGTH_SHORT).show();
                     return;
@@ -67,7 +68,10 @@ public class TimerFragment extends Fragment {
                     Toast.makeText(getActivity(), "Please enter a positive number", Toast.LENGTH_SHORT).show();
                     return;
                 }
-
+                mEditTextInput.setVisibility(View.GONE);
+                mEditTextInput.setEnabled(false);
+                mButtonSet.setVisibility(View.GONE);
+                mButtonSet.setEnabled(false);
                 setTime(millisInput);
                 mEditTextInput.setText("");
             }

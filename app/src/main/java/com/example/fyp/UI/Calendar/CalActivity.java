@@ -10,11 +10,18 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fyp.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -23,6 +30,7 @@ public class CalActivity extends AppCompatActivity implements CalAdapter.OnItemL
     private TextView monthYearText;
     private RecyclerView calendarRecyclerView;
     private Button wView, pWeek, nWeek;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -34,6 +42,7 @@ public class CalActivity extends AppCompatActivity implements CalAdapter.OnItemL
         pWeek = findViewById(R.id.pbtn);
         nWeek = findViewById(R.id.nbtn);
         CalUtils.selectedDate = LocalDate.now();
+
         setMonthView();
 
         pWeek.setOnClickListener(new View.OnClickListener() {
@@ -47,6 +56,7 @@ public class CalActivity extends AppCompatActivity implements CalAdapter.OnItemL
         wView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent intent=new Intent(CalActivity.this, WeekActivity.class);
                 startActivity(intent);
             }
@@ -85,6 +95,7 @@ public class CalActivity extends AppCompatActivity implements CalAdapter.OnItemL
             setMonthView();
         }
     }
+
 }
 
 

@@ -19,6 +19,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.fyp.R;
+import com.example.fyp.UI.Goals.GoalDisplayFragment;
 import com.example.fyp.UserFolder.LoginPage;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -41,7 +42,7 @@ public class ProfileFragment extends Fragment {
     DatabaseReference mDatabase;
     String userID, iKey;
     TextView uName, uEmail, editProfilePicture;
-    Button lButton, sButton;
+    Button lButton, sButton, fButton, flButton, glButton;
     ImageView pImage;
     public Uri iUri;
     private FirebaseStorage storage;
@@ -54,7 +55,10 @@ public class ProfileFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_profile,container,false);
         uName= view.findViewById(R.id.UsernameTV);
         uEmail= view.findViewById(R.id.EmailTV);
-        lButton = view.findViewById(R.id.loutBtn);
+        lButton = view.findViewById(R.id.sbookBtn);
+        fButton = view.findViewById(R.id.flistBtn);
+        flButton = view.findViewById(R.id.kfriendlistBtn);
+        glButton = view.findViewById(R.id.kgoallistBtn);
         sButton = view.findViewById(R.id.saveBtn);
         pImage = view.findViewById(R.id.userProfilePicture);
         editProfilePicture = view.findViewById(R.id.editImageTV);
@@ -94,18 +98,56 @@ public class ProfileFragment extends Fragment {
             public void onClick(View view) {
 
                 Fragment frag = new BookDisplayFragment();
-
-
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                 ft.replace(R.id.fragment_container, frag);
                 ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
                 ft.addToBackStack(null);
                 ft.commit();
+            }
+        });
 
-//                firebaseAuth.signOut();
-//                Intent intent = new Intent(getActivity(), LoginPage.class );
-//                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-//                startActivity(intent);
+        fButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Fragment fragment = OtherUserDisplayFragment.newInstance();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.fragment_container, fragment, "otheruserdisplayfragment");
+                transaction.commit();
+            }
+        });
+
+        flButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment fragment  = FriendDisplayFragment.newInstance();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.fragment_container, fragment, "frienddisplayfragment");
+                transaction.commit();
+
+//                Fragment frag = new FriendDisplayFragment();
+//                FragmentTransaction ft = getFragmentManager().beginTransaction();
+//                ft.replace(R.id.fragment_container, frag);
+//                ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+//                ft.addToBackStack(null);
+//                ft.commit();
+            }
+        });
+
+        glButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment fragment  = GoalDisplayFragment.newInstance();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.fragment_container, fragment, "goalsdisplayfragment");
+                transaction.commit();
+
+//                Fragment frag = new GoalDisplayFragment();
+//                FragmentTransaction ft = getFragmentManager().beginTransaction();
+//                ft.replace(R.id.fragment_container, frag);
+//                ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+//                ft.addToBackStack(null);
+//                ft.commit();
             }
         });
 

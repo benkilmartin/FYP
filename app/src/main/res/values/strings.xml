@@ -10,8 +10,10 @@
 
     <string name="menu_home">Home</string>
     <string name="menu_calendar">Calendar</string>
+    <string name="menu_relation">Friend Requests</string>
     <string name="menu_profile">Profile</string>
     <string name="menu_book">Books</string>
+    <string name="menu_goal">Goals</string>
     <string name="menu_timer">Timer</string>
     <string name="back"><![CDATA[<-]]></string>
     <string name="forward"><![CDATA[->]]></string>
@@ -21,9 +23,9 @@
         <item>Maths</item>
         <item>Geography</item>
         <item>History </item>
-        <item>Art </item>
-        <item>Biology </item>
-        <item>Chemistry </item>
+        <item>Art</item>
+        <item>Biology</item>
+        <item>Chemistry</item>
         <item>Physics</item>
         <item>Irish</item>
     </string-array>
@@ -32,6 +34,19 @@
         <item>1</item>
         <item>2</item>
         <item>3</item>
+    </string-array>
+
+    <string-array name="progress">
+        <item>In Progress</item>
+        <item>Completed</item>
+        <item>Failed</item>
+    </string-array>
+
+    <string-array name="year">
+        <item>Total</item>
+        <item>2024</item>
+        <item>2023</item>
+        <item>2022</item>
     </string-array>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

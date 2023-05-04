@@ -12,12 +12,14 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.fyp.R;
 import com.example.fyp.UI.Calendar.CalActivity;
+import com.example.fyp.UI.Goals.GoalsFragment;
 import com.example.fyp.UI.TaskTimer.TimerFragment;
 import com.example.fyp.UI.UserProfile.ProfileFragment;
 import com.example.fyp.UI.UserProfile.User;
 import com.example.fyp.UI.GoogleBooks.BookFragment;
 import com.example.fyp.UI.Home.HomeFragment;
 import com.example.fyp.UserFolder.LoginPage;
+import com.example.fyp.UserFolder.SelectionPage;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
@@ -110,7 +112,7 @@ public class NavDrawerActivity extends AppCompatActivity implements NavigationVi
     public boolean onOptionsItemSelected(MenuItem item){
         int id = item.getItemId();
 
-        if(id == R.id.action_settings){
+        if(id == R.id.menu_relation){
                 Intent intent = new Intent(NavDrawerActivity.this, CalActivity.class);
                 startActivity(intent);
             return true;
@@ -145,13 +147,17 @@ public class NavDrawerActivity extends AppCompatActivity implements NavigationVi
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new BookFragment()).commit();
                 break;
+            case R.id.nav_goal:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new GoalsFragment()).commit();
+                break;
             case R.id.nav_profile:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new ProfileFragment()).commit();
                 break;
             case R.id.nav_logout:
                 firebaseAuth.signOut();
-                intent = new Intent(NavDrawerActivity.this, LoginPage.class);
+                intent = new Intent(NavDrawerActivity.this, SelectionPage.class);
                 startActivity(intent);
                 break;
         }

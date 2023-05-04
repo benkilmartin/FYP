@@ -92,17 +92,17 @@ public class BookSavedExpanded extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 databaseReference = FirebaseDatabase.getInstance().getReference("Books").child(userID);
-                databaseReference.orderByChild("publishedDate").equalTo(bpublishedDate).addValueEventListener(new ValueEventListener() {
+                databaseReference.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if (snapshot.exists()) {
-                            snapshot.getRef().removeValue();
-                            finish();
-
-                            Toast.makeText(BookSavedExpanded.this, "Deleted", Toast.LENGTH_SHORT).show();
-
-                        } else {
-                            Toast.makeText(BookSavedExpanded.this, "Error", Toast.LENGTH_SHORT).show();
+                        for (DataSnapshot dataSnapshot:snapshot.getChildren()){
+                            Book book = dataSnapshot.getValue(Book.class);
+                            if(book.getDescription().equalsIgnoreCase(bdescription)){
+                                dataSnapshot.getRef().removeValue();
+                                Toast.makeText(BookSavedExpanded.this, "Deleted", Toast.LENGTH_SHORT).show();
+                            }else {
+                                Toast.makeText(BookSavedExpanded.this, "Error", Toast.LENGTH_SHORT).show();
+                            }
                         }
                     }
                     @Override

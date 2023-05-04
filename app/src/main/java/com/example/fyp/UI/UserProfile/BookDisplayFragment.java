@@ -43,7 +43,7 @@ public class BookDisplayFragment extends Fragment {
     private DatabaseReference bdatabaseRefernce;
     private ArrayList<Book> bookArrayList;
     private RecyclerView mRecyclerView;
-    String userID;
+    private String userID;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,

@@ -13,54 +13,64 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FYP"
         tools:targetApi="31">
+
         <activity
-            android:name=".Splash"
-            android:exported="false">
+            android:name=".UserFolder.SelectionPage"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".UserFolder.ParentRegistrationPage" />
+        <activity android:name=".UserFolder.RegistrationPage" />
+
+
+        <activity android:name=".Splash">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity
-            android:name=".UserFolder.ForgotPassword"
-            android:exported="false">
+        <activity android:name=".UserFolder.ForgotPassword">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-        </activity> <!-- <activity -->
-        <!-- android:name=".SubjectsFolder.SubjectsActivity" -->
-        <!-- android:exported="false"> -->
-        <!-- <meta-data -->
-        <!-- android:name="android.app.lib_name" -->
-        <!-- android:value="" /> -->
-        <!-- </activity> -->
+        </activity>
+
         <activity
             android:name=".NavDrawer.NavDrawerActivity"
             android:exported="true"
             android:label="@string/title_activity_main2"
             android:theme="@style/Theme.FYP.NoActionBar" />
+
         <activity
             android:name=".UserFolder.LoginPage"
             android:exported="false"
             android:theme="@style/Theme.FYP.NoActionBar" />
-        <activity
-            android:name=".UserFolder.RegistrationPage"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".UI.Calendar.EventActivity"
-            android:parentActivityName=".UI.Calendar.WeekActivity"/>
-        <activity android:name=".UI.Calendar.WeekActivity"
-            android:parentActivityName=".UI.Calendar.CalActivity"/>
+        <activity
+            android:name=".UI.Calendar.EventActivity"
+            android:parentActivityName=".UI.Calendar.WeekActivity" />
+
+        <activity
+            android:name=".UI.Calendar.WeekActivity"
+            android:parentActivityName=".UI.Calendar.CalActivity" />
+
         <activity
             android:name=".UI.Calendar.CalActivity"
             android:exported="true"
-            android:parentActivityName=".NavDrawer.NavDrawerActivity"/>
-        <activity android:name=".UI.GoogleBooks.BookExpanded"></activity>
-        <activity android:name=".UI.UserProfile.BookSavedExpanded"></activity>
+            android:parentActivityName=".NavDrawer.NavDrawerActivity" />
+        <activity
+            android:name=".UI.GoogleBooks.BookExpanded"
+            android:parentActivityName=".UI.Calendar.CalActivity" />
+        <activity android:name=".UI.UserProfile.BookSavedExpanded" />
+        <activity android:name=".UI.UserProfile.UserProfileExpanded" />
+        <activity
+            android:name=".UI.Calendar.EventExpanded"
+            android:parentActivityName=".UI.Calendar.CalActivity" />
+        <activity
+            android:name=".UI.Calendar.UncompleteEvents"
+            android:parentActivityName=".UI.Calendar.CalActivity" />
     </application>
-
 </manifest>

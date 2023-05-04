@@ -7,15 +7,19 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.fyp.R;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 import com.android.volley.Request;
@@ -24,7 +28,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-
 
 
 public class BookFragment extends Fragment {
@@ -39,7 +42,7 @@ public class BookFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_book,container,false);
+        View view = inflater.inflate(R.layout.fragment_book, container, false);
         mBookSearch = view.findViewById(R.id.searchETa);
         sButton = view.findViewById(R.id.sbtn);
         mRecyclerView = view.findViewById(R.id.idRVBooks);
@@ -65,6 +68,7 @@ public class BookFragment extends Fragment {
                         try {
                             JSONArray itemsArray = response.getJSONArray("items");
                             System.out.println("Here1");
+                            String thumbnail = "NoLink";
                             for (int i = 0; i < itemsArray.length(); i++) {
                                 JSONObject itemsObj = itemsArray.getJSONObject(i);
                                 JSONObject volumeObj = itemsObj.getJSONObject("volumeInfo");
@@ -76,7 +80,9 @@ public class BookFragment extends Fragment {
                                 String description = volumeObj.optString("description");
                                 int pageCount = volumeObj.optInt("pageCount");
                                 JSONObject thumbnailUrlObject = volumeObj.optJSONObject("imageLinks");
-                                String thumbnail = thumbnailUrlObject.optString("thumbnail");
+                                if (thumbnailUrlObject != null && thumbnailUrlObject.has("thumbnail")) {
+                                    thumbnail = thumbnailUrlObject.getString("thumbnail");
+                                }
                                 thumbnail = thumbnail.substring(0, 4) + 's' + thumbnail.substring(4);
                                 String previewLink = volumeObj.optString("previewLink");
                                 String infoLink = volumeObj.optString("infoLink");

@@ -1,8 +1,5 @@
 package com.example.fyp.UserFolder;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +8,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.fyp.R;
 import com.example.fyp.UI.UserProfile.User;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -18,13 +18,13 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 
-public class RegistrationPage extends AppCompatActivity {
+public class ParentRegistrationPage extends AppCompatActivity {
 
     private FirebaseAuth bfirebase;
+
     private Button bsignupButton;
     private TextView bloginpageButton;
     private EditText bsignupUsername, bsignupEmail, bsignupPassword, bcsignupPassword;
@@ -34,7 +34,7 @@ public class RegistrationPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         getSupportActionBar().hide();
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registration_page);
+        setContentView(R.layout.activity_parent_registration_page);
 
         bfirebase= FirebaseAuth.getInstance();
 
@@ -54,27 +54,25 @@ public class RegistrationPage extends AppCompatActivity {
                 String bmail = bsignupEmail.getText().toString().trim();
                 String bpassword = bsignupPassword.getText().toString().trim();
                 String bcpassword = bcsignupPassword.getText().toString().trim();
-
+                Boolean bParent = true;
                 if (bmail.isEmpty() || bpassword.isEmpty() || bcpassword.isEmpty()) {
                     Toast.makeText(getApplicationContext(), "Please Fill in all Fields", Toast.LENGTH_SHORT).show();
-                } else if (bpassword.length() < 6 & !bpassword.contains(" ") & bpassword.equalsIgnoreCase(bcpassword)) {
+                } else if (bpassword.length() < 5 & !bpassword.contains(" ")) {
                     Toast.makeText(getApplicationContext(), "Invalid Password", Toast.LENGTH_SHORT).show();
-                } else if(!bpassword.equalsIgnoreCase(bcpassword)){
-                    Toast.makeText(getApplicationContext(), "Password Does Not Match", Toast.LENGTH_SHORT).show();
-                } else{
+                } else {
                     bfirebase.createUserWithEmailAndPassword(bmail,bpassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
                                 Toast.makeText(getApplicationContext(), "Registration Successful", Toast.LENGTH_SHORT).show();
                                 String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                                User user = new User(userID,buserN,bmail,bpassword, " ", false);
-                                System.out.println(userID);
+                                User user = new User(userID, buserN,bmail,bpassword, " ", bParent);
                                 FirebaseDatabase.getInstance().getReference("Users").child(userID).setValue(user);
                                 sendVerificationEmail();
-                                startActivity(new Intent(RegistrationPage.this, LoginPage.class));
+                                startActivity(new Intent(ParentRegistrationPage.this, LoginPage.class));
                             }else{
                                 Toast.makeText(getApplicationContext(), "Registration Failed", Toast.LENGTH_SHORT).show();
+
                             }
                         }
                     });
@@ -85,7 +83,7 @@ public class RegistrationPage extends AppCompatActivity {
         bloginpageButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick (View v){
-                Intent intent = new Intent(RegistrationPage.this, LoginPage.class);
+                Intent intent = new Intent(ParentRegistrationPage.this, LoginPage.class);
                 startActivity(intent);
             }
         });
