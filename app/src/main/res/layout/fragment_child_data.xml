@@ -29,6 +29,18 @@
             android:textColor="@color/white"
             android:visibility="gone"/>
 
+        <TextView
+            android:id="@+id/kGoalsCompleted"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:textAlignment="center"
+            android:text="Total Goals Completed"
+            android:textSize="20dp"
+            android:textColor="@color/white"
+            android:visibility="gone"/>
+
         <LinearLayout
             android:id="@+id/kpieChart1"
             android:layout_width="match_parent"
@@ -37,22 +49,79 @@
             android:visibility="gone">
 
 
-        <TextView
-            android:id="@+id/ksubjectTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:textSize="20dp"
-            android:layout_marginTop="20dp"
-            android:textAlignment="center"
-            android:text="Hours Per Subject"
-            android:textColor="@color/white"/>
+            <TextView
+                android:id="@+id/ksubjectTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textSize="20dp"
+                android:layout_marginTop="20dp"
+                android:textAlignment="center"
+                android:text="Hours Per Subject"
+                android:textColor="@color/white"
+                />
 
-        <com.github.mikephil.charting.charts.PieChart
-            android:id="@+id/kpieChart"
-            android:layout_marginTop="20dp"
+
+            <Spinner
+                android:id="@+id/kDisplayYearSpinner2"
+                android:background="@drawable/custom_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
+                android:padding="10dp"/>
+
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/kpieChart"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"></com.github.mikephil.charting.charts.PieChart>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/kpieChart5"
             android:layout_width="match_parent"
-            android:layout_height="400dp"></com.github.mikephil.charting.charts.PieChart>
+            android:orientation="vertical"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textSize="20dp"
+                android:layout_marginTop="20dp"
+                android:textAlignment="center"
+                android:text="Hours Studied Per Month Per Subject"
+                android:textColor="@color/white"/>
+
+            <Spinner
+                android:id="@+id/kDisplayYearSpinner"
+                android:background="@drawable/custom_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
+                android:padding="10dp"/>
+
+            <Spinner
+                android:id="@+id/kDisplayMonthSpinner"
+                android:background="@drawable/custom_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
+                android:padding="10dp"/>
+
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/kpieChartMonthPerSubject"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:visibility="gone"></com.github.mikephil.charting.charts.PieChart>
+
         </LinearLayout>
 
         <LinearLayout
@@ -62,16 +131,16 @@
             android:layout_height="match_parent"
             android:visibility="gone">
 
-        <TextView
-            android:id="@+id/kmonthTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:textSize="20dp"
-            android:layout_marginTop="20dp"
-            android:textAlignment="center"
-            android:text="Hours Per Month"
-            android:textColor="@color/white"/>
+            <TextView
+                android:id="@+id/kmonthTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textSize="20dp"
+                android:layout_marginTop="20dp"
+                android:textAlignment="center"
+                android:text="Hours Per Month"
+                android:textColor="@color/white"/>
 
             <com.github.mikephil.charting.charts.PieChart
                 android:id="@+id/kpiemonthChart"
@@ -105,9 +174,44 @@
                 android:layout_marginTop="20dp"></com.github.mikephil.charting.charts.PieChart>
         </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/kpieChart4"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/kFailedvCompletedTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textSize="20dp"
+                android:layout_marginTop="20dp"
+                android:textAlignment="center"
+                android:text="Uncompleted Events v Completed"
+                android:textColor="@color/white"/>
+
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/kFailedvCompletedChart"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:layout_marginTop="20dp"
+                ></com.github.mikephil.charting.charts.PieChart>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/kUncompletedButton"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_below="@id/calendarRecyclerView"
+                android:background="@drawable/custom_button1"
+                android:text="View Uncompleted Events"/>
+        </LinearLayout>
 
     </LinearLayout>
-
 
 
 </ScrollView>
